@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>889</width>
+    <height>780</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>公交线路换乘查询系统</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="buslineInfoTab">
+       <attribute name="title">
+        <string>线路管理</string>
+       </attribute>
+       <widget class="QListWidget" name="allBusLinesList">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>348</y>
+          <width>331</width>
+          <height>281</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="allBusLinesLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>323</y>
+          <width>191</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>公交线路列表：(双击查看详情)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="searchBusLineLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>640</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>搜索：</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="busLineSearchLineEdit">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>638</y>
+          <width>291</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="currentLineNumber">
+        <property name="geometry">
+         <rect>
+          <x>379</x>
+          <y>50</y>
+          <width>66</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 17pt &quot;.SF NS Text&quot;;
+background-color: rgb(51, 133, 255);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>编号</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QFrame" name="buslineInfoFrame">
+        <property name="geometry">
+         <rect>
+          <x>445</x>
+          <y>50</y>
+          <width>321</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#buslineInfoFrame{
+	border-color: rgb(51, 133, 255);
+	border-width: 1px;
+	border-style: solid;
+}
+</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="currentLineInfo">
+         <property name="geometry">
+          <rect>
+           <x>12</x>
+           <y>13</y>
+           <width>301</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(51, 133, 255);
+font: 15pt &quot;.SF NS Text&quot;;</string>
+         </property>
+         <property name="text">
+          <string>起止站点</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>12</x>
+           <y>43</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(51, 133, 255);
+font: 11pt &quot;.SF NS Text&quot;;</string>
+         </property>
+         <property name="text">
+          <string>运行时间：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>12</x>
+           <y>65</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(51, 133, 255);
+font: 11pt &quot;.SF NS Text&quot;;</string>
+         </property>
+         <property name="text">
+          <string>票价信息：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="currentLineTime">
+         <property name="geometry">
+          <rect>
+           <x>66</x>
+           <y>43</y>
+           <width>111</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(51, 133, 255);
+font: 11pt &quot;.SF NS Text&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="currentLineTickets">
+         <property name="geometry">
+          <rect>
+           <x>66</x>
+           <y>65</y>
+           <width>241</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(51, 133, 255);
+font: 11pt &quot;.SF NS Text&quot;;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="addLineButton">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>665</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>新增线路</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="removeLineButton">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>665</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>删除线路</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="editLineButton">
+        <property name="geometry">
+         <rect>
+          <x>125</x>
+          <y>665</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>修改线路</string>
+        </property>
+       </widget>
+       <widget class="BuslineDetailView" name="buslineDetailView" native="true">
+        <property name="geometry">
+         <rect>
+          <x>380</x>
+          <y>160</y>
+          <width>471</width>
+          <height>520</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>201</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>站点列表：(双击筛选经过的线路)</string>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="allStopList">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>331</width>
+          <height>241</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="allStopSearchLineEdit">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>280</y>
+          <width>291</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="searchBusLineLabel_2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>282</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>搜索：</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="showAllButton">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>320</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>显示全部</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="queryTab">
+       <attribute name="title">
+        <string>换乘查询</string>
+       </attribute>
+       <widget class="QListWidget" name="startStopList">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>251</width>
+          <height>261</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>312</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>搜索：</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="startStopSearchEdit">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>310</y>
+          <width>211</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>双击选择起点站：</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>370</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>双击选择终点站：</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="stopSearchEdit">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>658</y>
+          <width>211</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="endStopList">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>398</y>
+          <width>251</width>
+          <height>251</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>660</y>
+          <width>41</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>搜索：</string>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="queryChoiceGroup">
+        <property name="geometry">
+         <rect>
+          <x>315</x>
+          <y>20</y>
+          <width>401</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>当前选择</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>起点站：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>终点站：</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="startStopLabel">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>30</y>
+           <width>331</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="endStopLabel">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>60</y>
+           <width>331</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="transferRadioButton">
+         <property name="geometry">
+          <rect>
+           <x>190</x>
+           <y>87</y>
+           <width>81</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>换乘最少</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="lengthRadioButton">
+         <property name="geometry">
+          <rect>
+           <x>310</x>
+           <y>87</y>
+           <width>81</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>路线最短</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="noneRadioButton">
+         <property name="geometry">
+          <rect>
+           <x>72</x>
+           <y>87</y>
+           <width>61</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>无要求</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>90</y>
+           <width>59</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>方案要求：</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="swapStopsButton">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>40</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>交换起始站点</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="confirmQueryButton">
+        <property name="geometry">
+         <rect>
+          <x>730</x>
+          <y>100</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查询换乘方案</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="queryPromptLabel">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>180</y>
+          <width>59</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 11pt &quot;.SF NS Text&quot;;</string>
+        </property>
+        <property name="text">
+         <string>查询结果</string>
+        </property>
+       </widget>
+       <widget class="QueryResultView" name="queryResultWidget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>210</y>
+          <width>531</width>
+          <height>471</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>889</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BuslineDetailView</class>
+   <extends>QWidget</extends>
+   <header>buslinedetailview.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QueryResultView</class>
+   <extends>QWidget</extends>
+   <header>queryresultview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
