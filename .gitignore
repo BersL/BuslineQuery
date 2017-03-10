@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Build folder
+build*/
+
+# Release file
+*.app
+*.exe
