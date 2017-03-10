@@ -1,12 +1,17 @@
 # BuslineQuery
 
-华中科技大学数据结构课程设计
+Data Structure Course Project for HUST
 
-# Depencency
+# Dependency
 
 Qt 5.5.1+
 
-# ScreenShot
-- 线路管理界面：
-![manage](/Users/Bers/Affairs/学习/BuslineQuery/manage.png)
-- 换乘查询界面：![query](/Users/Bers/Affairs/学习/BuslineQuery/query.png)
+# ScreenShots
+
+## Busline Management UI
+
+![manage](https://raw.githubusercontent.com/BersL/BuslineQuery/master/Screenshots/manage.png)
+
+## Query UI
+
+![query](https://raw.githubusercontent.com/BersL/BuslineQuery/master/Screenshots/query.png)
